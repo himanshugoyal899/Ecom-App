@@ -22,12 +22,10 @@ public class Inventory {
 
     @PositiveOrZero
     @NotNull
-    @NotEmpty
     private Integer quantity;
 
     @PositiveOrZero
     @NotNull
-    @NotEmpty
     private Double price;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

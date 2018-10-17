@@ -32,7 +32,6 @@ public class User implements Cloneable {
     @NotNull
     private String role;
 
-    @NotEmpty
     @NotNull
     private Boolean enabled;
 
