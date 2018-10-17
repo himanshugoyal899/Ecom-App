@@ -15,19 +15,19 @@ public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
 
-    @GetMapping(path = "/sellers/{username}/inventory/products")
+    @GetMapping(path = "api/seller/{username}/inventory/products")
     public List<Inventory> getInventoryForUsername(@PathVariable String username) {
         return inventoryService.getInventoryForUsername(username);
     }
 
-    @PostMapping(path = "/sellers/{username}/inventory/{productId}")
+    @PostMapping(path = "api/seller/{username}/inventory/{productId}")
     public Inventory addProductToInventory(@PathVariable String username,
                                            @PathVariable Long productId,
                                            @RequestBody Inventory inventory) {
         return inventoryService.addProductToInventory(username, productId, inventory);
     }
 
-    @PutMapping(path = "/sellers/{username}/inventory/{inventoryId}")
+    @PutMapping(path = "api/seller/{username}/inventory/{inventoryId}")
     public Inventory updateProductInInventory(@PathVariable String username,
                                               @PathVariable Long inventoryId,
                                               @RequestBody Inventory givenInventory) {
@@ -36,7 +36,7 @@ public class InventoryController {
                 givenInventory);
     }
 
-    @DeleteMapping(path = "/sellers/{username}/inventory/{inventoryId}")
+    @DeleteMapping(path = "api/seller/{username}/inventory/{inventoryId}")
     public void deleteProductFromSellerInventory(@PathVariable String username,
                                                  @PathVariable Long inventoryId) {
         inventoryService.deleteProductFromSellerInventory(username, inventoryId);

@@ -27,7 +27,7 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @DeleteMapping(path = "/admin/{adminName}/products/{productId}")
+    @DeleteMapping(path = "api/admin/products/{productId}")
     public void deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);
     }

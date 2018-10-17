@@ -19,8 +19,8 @@ public class DatabaseLoader implements CommandLineRunner {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private InventoryRepository inventoryRepository;
+//    @Autowired
+//    private InventoryRepository inventoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -32,17 +32,24 @@ public class DatabaseLoader implements CommandLineRunner {
         userRepository.save(seller1);
         userRepository.save(seller2);
 
-        Product product1 = new Product(1L, "Laptops", "MacBook Pro", "Apple", "Best for devs.", "url1");
-        Product product2 = new Product(2L, "Laptops", "R17", "Alienware", "Best for gamers.", "url2");
-        Product product3 = new Product(3L, "Computers", "Mac", "Apple", "Best for devs.", "url3");
+        Product product1 = new Product( "Laptops", "MacBook Pro", "Apple", "Best for devs.", "url1");
+        Product product2 = new Product( "Laptops", "R17", "Alienware", "Best for gamers.", "url2");
+        Product product3 = new Product( "Computers", "VivoBook R542UQ", "ASUS", "Best in range.", "url3");
+        Product product4 = new Product( "Electronics", "Washing Machine", "LG", "Best for washing.", "url4");
+        Product product5 = new Product( "Smartphones", "Redmi Note 6", "Xiaomi", "Budget Smartphone.", "url5");
 
         productRepository.save(product1);
         productRepository.save(product2);
         productRepository.save(product3);
+        productRepository.save(product4);
+        productRepository.save(product5);
 
         /*inventoryRepository.save(new Inventory(1L, 20, 179999.00, seller1, product1));
         inventoryRepository.save(new Inventory(2L, 10, 299999.00, seller1, product3));
         inventoryRepository.save(new Inventory(3L, 5, 299999.00, seller2, product3));
-        inventoryRepository.save(new Inventory(4L, 10, 99999.00, seller1, product2));*/
+        inventoryRepository.save(new Inventory(4L, 10, 1002.00, seller1, product2));
+        inventoryRepository.save(new Inventory(5L, 9, 20000.00, seller1, product4));
+        inventoryRepository.save(new Inventory(6L, 13, 3000.00, seller1, product5));
+        inventoryRepository.save(new Inventory(7L, 13, 3000.00, seller2, product4));*/
     }
 }

@@ -7,7 +7,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Cloneable {
 
     @Id
     @GeneratedValue
@@ -21,15 +21,24 @@ public class User {
     @NotEmpty
     private String password;
 
+    @NotEmpty
     private String firstName;
 
+    @NotEmpty
+    @NotNull
     private String lastName;
 
+    @NotEmpty
+    @NotNull
     private String role;
 
+    @NotEmpty
+    @NotNull
     private Boolean enabled;
 
     @Email
+    @NotEmpty
+    @NotNull
     private String emailId;
 
     protected User() {
@@ -124,5 +133,11 @@ public class User {
                 ", enabled=" + enabled +
                 ", emailId='" + emailId + '\'' +
                 '}';
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        super.clone();
+        return new User(id, username, password, firstName, lastName, role, enabled, emailId);
     }
 }

@@ -1,6 +1,8 @@
 package com.fareye.ecommerce.managementv2.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
@@ -9,12 +11,20 @@ public class Product {
     @GeneratedValue
     private Long id;
 
+    @NotNull
+    @NotEmpty
     private String category;
 
+    @NotNull
+    @NotEmpty
     private String name;
 
+    @NotNull
+    @NotEmpty
     private String brand;
 
+    @NotNull
+    @NotEmpty
     private String description;
 
     private String url;
@@ -22,8 +32,8 @@ public class Product {
     protected Product() {
     }
 
-    public Product(Long id, String category, String name, String brand, String description, String url) {
-        this.id = id;
+    public Product(String category, String name, String brand, String description, String url) {
+        //this.id = id;
         this.category = category;
         this.name = name;
         this.brand = brand;
